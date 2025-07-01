@@ -1,86 +1,165 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Deepak Kannan - Resume</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Work in progress- Portfolio</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Jonathan Deepak Kannan</h1>
-            <p>301.357.2411 | <a href="mailto:kjdeepak@umd.edu">kjdeepak@umd.edu</a> | 
-                <a href="https://www.linkedin.com/in/jonathankannan/" target="_blank">LinkedIn</a> | 
-                <a href="https://github.com/jonathandeepak" target="_blank">GitHub</a>
-            </p>
-        </header>
-        
-        <section>
-            <h2>Education</h2>
-            <p><strong>University of Maryland, College Park, MD</strong> - Robotics Engineering (Expected May 2025)</p>
-            <p><strong>SRM Institute of Science and Technology, India</strong> - Mechanical Engineering (June 2018 - May 2022)</p>
-        </section>
-        
-        <section>
-            <h2>Experience</h2>
-            <h3>Research Assistant (Feb 2025 – March 2025)</h3>
-            <p><strong>Project – HALO: Human Preference Aligned Offline Reward Learning for Socially Compliant Navigation</strong></p>
-            <ul>
-                <li>Conducted in-depth analysis of robot movement behaviors, enhancing training data for RL models.</li>
-                <li>Created CAD models and implemented open-loop control in Gazebo and Rviz.</li>
-            </ul>
-        </section>
-        
-        <section>
-            <h2>Projects</h2>
-            <h3>Robot Arm Kinematics and Simulation Project (Fall 2023)</h3>
-            <ul>
-                <li>Developed DH parameters and equations for a 6DOF Schunk Robot Arm using Python's SymPy library.</li>
-                <li>Created CAD models and applied control in Gazebo, Rviz.</li>
-            </ul>
-            
-            <h3>TurtleBot Perception and Navigation System (Spring 2024)</h3>
-            <ul>
-                <li>Developed a perception system using computer vision algorithms for horizon line detection.</li>
-                <li>Implemented optical flow analysis and lane marking detection for autonomous navigation.</li>
-            </ul>
-        </section>
-        
-        <section>
-            <h2>Certifications</h2>
-            <ul>
-                <li>Computer Vision with OpenCV and Deep Learning – Udemy</li>
-                <li>ROS2 Nav2 with SLAM and Navigation – Udemy</li>
-                <li>Supervised Machine Learning: Regression and Classification – Coursera</li>
-            </ul>
-        </section>
-        
-        <section>
-            <h2>Skills</h2>
-            <p><strong>Technical Skills:</strong> Python, C++, Computer Vision, TensorFlow, Machine Learning, OpenCV, SolidWorks, ANSYS, Creo, ROS2, Linux, Latex, MS Suite, Docker</p>
-            <p><strong>Lab Skills:</strong> Machining, Drilling, CNC</p>
-        </section>
-        
-        <section>
-            <h2>Volunteer Experience</h2>
-            <h3>Community Infrastructure Support – City of College Park, MD</h3>
-            <ul>
-                <li>Helped construct a small bridge and clear an old easement for better access.</li>
-                <li>Recognized by Mayor Dr. S.M. Fazlul Kabir for outstanding community service.</li>
-            </ul>
-            
-            <h3>Volunteer Table Host & Setup Assistant – Cru, University of Maryland (Jan 2024 – Present)</h3>
-            <ul>
-                <li>Assists with setup for International Friends Club (IFC) gatherings.</li>
-                <li>Facilitates cultural exchange discussions for international students.</li>
-            </ul>
-        </section>
-        
-        <section>
-            <h2>Languages</h2>
-            <p>English, Telugu, Tamil, Hindi</p>
-        </section>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h2 class="nav-logo">Jonathan</h2>
+      <ul class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1 class="hero-title">Hi, I'm <span class="highlight">Jonathan</span></h1>
+      <p class="hero-description">Robotics Engineer</p>
+      <a href="#projects" class="cta-button">View My Work</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="about-text">
+          I'm a passionate developer with experience in building web applications using modern technologies. 
+          I love creating efficient, scalable solutions and learning new technologies to solve complex problems.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <div class="placeholder-image">Project 1</div>
+            </div>
+            <h3>E-Commerce Website</h3>
+            <p>A full-stack e-commerce platform built with React and Node.js</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Live Demo</a>
+              <a href="#" class="project-link">Code</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <div class="placeholder-image">Project 2</div>
+            </div>
+            <h3>Task Management App</h3>
+            <p>A collaborative task management tool with real-time updates</p>
+            <div class="project-tech">
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Socket.io</span>
+              <span class="tech-tag">Express</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Live Demo</a>
+              <a href="#" class="project-link">Code</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <div class="placeholder-image">Project 3</div>
+            </div>
+            <h3>Weather Dashboard</h3>
+            <p>A responsive weather app with location-based forecasts</p>
+            <div class="project-tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">API</span>
+              <span class="tech-tag">CSS3</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Live Demo</a>
+              <a href="#" class="project-link">Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Frontend</h3>
+            <div class="skills-list">
+              <span class="skill">HTML5</span>
+              <span class="skill">CSS3</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">React</span>
+              <span class="skill">Vue.js</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Backend</h3>
+            <div class="skills-list">
+              <span class="skill">Node.js</span>
+              <span class="skill">Python</span>
+              <span class="skill">Express</span>
+              <span class="skill">Django</span>
+              <span class="skill">REST APIs</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Tools & Others</h3>
+            <div class="skills-list">
+              <span class="skill">Git</span>
+              <span class="skill">MongoDB</span>
+              <span class="skill">PostgreSQL</span>
+              <span class="skill">AWS</span>
+              <span class="skill">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-description">
+          I'm always open to discussing new opportunities and interesting projects.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:your.email@example.com" class="contact-link">Email</a>
+          <a href="https://github.com/yourusername" class="contact-link">GitHub</a>
+          <a href="https://linkedin.com/in/yourusername" class="contact-link">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Your Name. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="script.js"></script>
 </body>
+
 </html>
