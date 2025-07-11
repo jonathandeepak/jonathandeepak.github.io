@@ -1,291 +1,254 @@
 <!DOCTYPE html>
-<!-- This tells the browser you're using HTML5 -->
-
-<html>
-
+<html lang="en">
 <head>
-  <!-- Meta settings: character encoding and responsive layout -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  
-  <!-- Page title shown in the browser tab -->
-  <title>Jonathan - Robotics Portfolio</title>
-  
-  <!-- Link to external CSS file for styling -->
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Deepak Kannan - Robotics Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
-
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>JDK</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- Navigation Bar at the top of the page -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <h2 class="nav-logo">Jonathan Deepak Kannan</h2>
-      <ul class="nav-menu">
-        <!-- These links scroll to different sections on the same page -->
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-    <!-- Hero/Banner Section -->
-    <section class="hero">
-      <h1 class="hero-title">Hi, I'm <span class="highlight">Jonathan Deepak Kannan</span></h1>
-<!--       <p class="hero-description">Robotics Engineer & Machine Learning Specialist</p> -->
-      <!-- Button to jump to the Projects section -->
-      <a href="#projects" class="cta-button">View My Work</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Jonathan</span>
+                    <span class="title-line">Deepak</span>
+                    <span class="title-line highlight">Kannan</span>
+                </h1>
+                <p class="hero-subtitle">Robotics Engineer & ML Specialist</p>
+                <div class="hero-description">
+                    <p>Building the future through intelligent robotics systems, machine learning, and autonomous technologies.</p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="robot-animation">
+                    <div class="robot-body"></div>
+                    <div class="robot-head"></div>
+                    <div class="robot-eyes"></div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <p class="about-text">
-          <!-- Introductory paragraph about your background -->
-            I'm a graduate student in Robotics Engineering at the University of Maryland with hands-on experience in ROS, Gazebo, and robot control systems.  
-            My work spans reinforcement learning, perception, and motion planning for autonomous robots.  
-            I’m passionate about building intelligent, adaptable robotic systems that interact safely with real-world environments.
-        </p>
-      </div>
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate robotics engineer specializing in autonomous systems, machine learning, and industrial automation. With expertise in ROS, PyTorch, and advanced control algorithms, I develop intelligent solutions that bridge the gap between theoretical research and practical applications.</p>
+                    <p>My experience spans from reinforcement learning for hexapod locomotion to industrial FANUC robot programming, always focusing on creating robust, efficient, and innovative robotic systems.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>5+</h3>
+                        <p>Major Projects</p>
+                    </div>
+                    <div class="stat">
+                        <h3>10+</h3>
+                        <p>Technologies</p>
+                    </div>
+                    <div class="stat">
+                        <h3>3+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
-      <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        
-        <!-- Grid layout to display all project cards -->
-        <div class="projects-grid">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <h3>Hexapod Reinforcement Learning</h3>
+                        <span class="project-type">AI/ML</span>
+                    </div>
+                    <p>Advanced RL system for hexapod robot locomotion using PPO algorithm, achieving stable gait patterns and adaptive terrain navigation in Gazebo simulation.</p>
+                    <div class="project-tech">
+                        <span>PyTorch</span>
+                        <span>ROS</span>
+                        <span>Gazebo</span>
+                        <span>Python</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-btn">GitHub</a>
+                        <a href="#" class="link-btn">Demo</a>
+                    </div>
+                </div>
 
-          <!-- Project 1: Hexapod RL -->
-          <div class="project-card">
-            <div class="project-image">
-              <!-- Placeholder image or label -->
-              <div class="placeholder-image">Hexapod Robot</div>
-            </div>
-            <h3>Hexapod Reinforcement Learning Control</h3>
-            <p>Short summary of the project</p>
-            <div class="project-features">
-              <ul>
-                <!-- List of notable features or accomplishments -->
-                <li>PPO-based reinforcement learning implementation</li>
-                <li>Real-time gait optimization</li>
-                <li>Gazebo physics simulation environment</li>
-                <li>Adaptive terrain navigation</li>
-                <li>Performance monitoring and analysis</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <!-- Technologies used as tags -->
-              <span class="tech-tag">PyTorch</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Gazebo</span>
-              <span class="tech-tag">ROS</span>
-              <span class="tech-tag">OpenAI Gym</span>
-            </div>
-            <div class="project-links">
-              <!-- Links to GitHub and live demo -->
-              <a href="https://github.com/jonathan-dk/hexapod-rl" class="project-link">GitHub</a>
-              <a href="https://your-hexapod-demo.replit.app" class="project-link">Demo</a>
-            </div>
-          </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>ML Velocity Prediction</h3>
+                        <span class="project-type">Machine Learning</span>
+                    </div>
+                    <p>Comprehensive ML pipeline for predicting robot velocity commands from sensor data using ensemble methods and advanced feature engineering.</p>
+                    <div class="project-tech">
+                        <span>Scikit-learn</span>
+                        <span>XGBoost</span>
+                        <span>Python</span>
+                        <span>Pandas</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-btn">GitHub</a>
+                        <a href="#" class="link-btn">Demo</a>
+                    </div>
+                </div>
 
-          <!-- Project 2: ML Velocity Prediction -->
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">ML Pipeline</div>
-            </div>
-            <h3>ML-based Velocity Prediction for Robot Commands</h3>
-            <p>Description of the machine learning project</p>
-            <div class="project-features">
-              <ul>
-                <li>Advanced feature engineering pipeline</li>
-                <li>Ensemble learning methods (Random Forest, XGBoost)</li>
-                <li>Real-time sensor data processing</li>
-                <li>Cross-validation and hyperparameter tuning</li>
-                <li>Model deployment for real-time inference</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <span class="tech-tag">Scikit-learn</span>
-              <span class="tech-tag">XGBoost</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Pandas</span>
-              <span class="tech-tag">NumPy</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/jonathan-dk/ml-velocity-prediction" class="project-link">GitHub</a>
-              <a href="https://your-ml-demo.replit.app" class="project-link">Demo</a>
-            </div>
-          </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>TurtleBot Navigation</h3>
+                        <span class="project-type">Robotics</span>
+                    </div>
+                    <p>Complete autonomous navigation system with SLAM, computer vision, and dynamic obstacle avoidance for complex indoor environments.</p>
+                    <div class="project-tech">
+                        <span>ROS</span>
+                        <span>OpenCV</span>
+                        <span>C++</span>
+                        <span>PCL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-btn">GitHub</a>
+                        <a href="#" class="link-btn">Demo</a>
+                    </div>
+                </div>
 
-          <!-- Project 3: TurtleBot Navigation -->
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">TurtleBot</div>
-            </div>
-            <h3>TurtleBot Perception & Navigation System</h3>
-            <p>Project involving CV, SLAM, and navigation</p>
-            <div class="project-features">
-              <ul>
-                <li>Real-time SLAM mapping and localization</li>
-                <li>Computer vision-based object detection</li>
-                <li>Dynamic obstacle avoidance</li>
-                <li>ROS-based architecture</li>
-                <li>Multi-sensor fusion (LiDAR, camera, IMU)</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <span class="tech-tag">ROS</span>
-              <span class="tech-tag">OpenCV</span>
-              <span class="tech-tag">C++</span>
-              <span class="tech-tag">Python</span>
-<!--               <span class="tech-tag">PCL</span> -->
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/jonathan-dk/turtlebot-navigation" class="project-link">GitHub</a>
-              <a href="https://your-turtlebot-demo.replit.app" class="project-link">Demo</a>
-            </div>
-          </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>A* Path Planning</h3>
+                        <span class="project-type">Algorithms</span>
+                    </div>
+                    <p>Optimized A* pathfinding implementation with efficient data structures for real-time navigation in dynamic environments.</p>
+                    <div class="project-tech">
+                        <span>C++</span>
+                        <span>Python</span>
+                        <span>ROS</span>
+                        <span>NumPy</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-btn">GitHub</a>
+                        <a href="#" class="link-btn">Demo</a>
+                    </div>
+                </div>
 
-          <!-- Project 4: A* Path Planning -->
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">A* Algorithm</div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>FANUC Automation</h3>
+                        <span class="project-type">Industrial</span>
+                    </div>
+                    <p>Industrial robot programming solutions including pick-and-place operations, vision integration, and safety protocols for manufacturing.</p>
+                    <div class="project-tech">
+                        <span>FANUC KAREL</span>
+                        <span>Vision Systems</span>
+                        <span>PLCs</span>
+                        <span>Automation</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-btn">GitHub</a>
+                        <a href="#" class="link-btn">Portfolio</a>
+                    </div>
+                </div>
             </div>
-            <h3>A* Path Planning Implementation</h3>
-            <p>Details about A* algorithm implementation</p>
-            <div class="project-features">
-              <ul>
-                <li>Optimized A* algorithm implementation</li>
-                <li>Dynamic obstacle handling</li>
-                <li>Multiple heuristic functions</li>
-                <li>Real-time path replanning</li>
-                <li>Performance benchmarking tools</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <span class="tech-tag">C++</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">ROS</span>
-              <span class="tech-tag">Matplotlib</span>
-              <span class="tech-tag">NumPy</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/jonathan-dk/astar-pathplanning" class="project-link">GitHub</a>
-              <a href="https://your-astar-demo.replit.app" class="project-link">Demo</a>
-            </div>
-          </div>
-
-          <!-- Project 5: FANUC Robot -->
-          <div class="project-card">
-            <div class="project-image">
-              <div class="placeholder-image">FANUC Robot</div>
-            </div>
-            <h3>FANUC Industrial Robot Programming</h3>
-            <p>Pick-and-place automation project with FANUC robots</p>
-            <div class="project-features">
-              <ul>
-                <li>FANUC KAREL programming</li>
-                <li>Pick-and-place automation</li>
-                <li>Vision system integration</li>
-                <li>Safety interlock systems</li>
-                <li>Production line optimization</li>
-              </ul>
-            </div>
-            <div class="project-tech">
-              <span class="tech-tag">FANUC KAREL</span>
-              <span class="tech-tag">Teach Pendant</span>
-              <span class="tech-tag">Vision Systems</span>
-              <span class="tech-tag">PLCs</span>
-              <span class="tech-tag">Industrial Automation</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/jonathan-dk/fanuc-automation" class="project-link">GitHub</a>
-              <a href="https://your-fanuc-demo.replit.app" class="project-link">Portfolio</a>
-            </div>
-          </div>
-
         </div>
-      </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
-      <div class="container">
-        <h2 class="section-title">Skills & Technologies</h2>
-
-        <!-- Three columns of categorized skills -->
-        <div class="skills-grid">
-
-          <!-- Column 1: Robotics & AI -->
-          <div class="skill-category">
-            <h3>Robotics & AI</h3>
-            <div class="skills-list">
-              <span class="skill">ROS</span>
-              <span class="skill">PyTorch</span>
-              <span class="skill">OpenCV</span>
-              <span class="skill">Gazebo</span>
-              <span class="skill">SLAM</span>
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Robotics & AI</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">ROS</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">Gazebo</span>
+                        <span class="skill-tag">SLAM</span>
+                        <span class="skill-tag">Computer Vision</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">FANUC KAREL</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">XGBoost</span>
+                        <span class="skill-tag">Reinforcement Learning</span>
+                        <span class="skill-tag">Neural Networks</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Pandas</span>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <!-- Column 2: Programming -->
-          <div class="skill-category">
-            <h3>Programming</h3>
-            <div class="skills-list">
-              <span class="skill">Python</span>
-              <span class="skill">C++</span>
-              <span class="skill">MATLAB</span>
-              <span class="skill">FANUC KAREL</span>
-              <span class="skill">Linux</span>
-            </div>
-          </div>
-
-          <!-- Column 3: Machine Learning -->
-          <div class="skill-category">
-            <h3>Machine Learning</h3>
-            <div class="skills-list">
-              <span class="skill">Scikit-learn</span>
-              <span class="skill">XGBoost</span>
-              <span class="skill">Reinforcement Learning</span>
-              <span class="skill">Computer Vision</span>
-              <span class="skill">Neural Networks</span>
-            </div>
-          </div>
-
         </div>
-      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="contact-description">
-          Invitation to reach out for opportunities
-        </p>
-        <!-- Contact links -->
-        <div class="contact-links">
-          <a href="mailto:jonathan.deepak.kannan@gmail.com" class="contact-link">Email</a>
-          <a href="https://github.com/jonathan-dk" class="contact-link">GitHub</a>
-          <a href="https://linkedin.com/in/jonathan-deepak-kannan" class="contact-link">LinkedIn</a>
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <div class="contact-text">
+                    <p>Interested in collaborating on robotics projects or discussing opportunities? I'd love to hear from you!</p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:jonathan.deepak.kannan@gmail.com" class="contact-btn">
+                        <span>Email</span>
+                    </a>
+                    <a href="https://github.com/jonathan-dk" class="contact-btn">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/jonathan-deepak-kannan" class="contact-btn">
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <!-- Footer at the bottom of the page -->
-  <footer class="footer">
-    <p>&copy; 2024 Jonathan Deepak Kannan. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Jonathan Deepak Kannan. All rights reserved.</p>
+        </div>
+    </footer>
 
-  <!-- Link to JavaScript file for interactivity (if needed) -->
-  <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
