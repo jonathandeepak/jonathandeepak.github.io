@@ -5,14 +5,613 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Deepak Kannan - Robotics Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #48bb78;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --background: #f7fafc;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 8rem 0 4rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .title-line {
+            display: block;
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        .title-line:nth-child(1) { animation-delay: 0.1s; }
+        .title-line:nth-child(2) { animation-delay: 0.3s; }
+        .title-line:nth-child(3) { animation-delay: 0.5s; }
+
+        .highlight {
+            background: linear-gradient(45deg, #48bb78, #38a169);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 1.1s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(72, 187, 120, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .robot-animation {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            animation: robotFloat 3s ease-in-out infinite;
+        }
+
+        .robot-body {
+            width: 120px;
+            height: 160px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .robot-head {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .robot-eyes {
+            width: 40px;
+            height: 15px;
+            background: var(--accent-color);
+            border-radius: 10px;
+            position: absolute;
+            top: 22%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: robotBlink 2s infinite;
+        }
+
+        @keyframes robotFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes robotBlink {
+            0%, 95% { opacity: 1; }
+            97% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat p {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--background);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card.featured {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .project-type {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-card:not(.featured) .project-type {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary-color);
+        }
+
+        .project-card p {
+            margin-bottom: 1.5rem;
+            color: inherit;
+            opacity: 0.9;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-card:not(.featured) .project-tech span {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary-color);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .link-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: inherit;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .link-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .project-card:not(.featured) .link-btn {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary-color);
+        }
+
+        .project-card:not(.featured) .link-btn:hover {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .project-achievement {
+            background: rgba(72, 187, 120, 0.1);
+            color: var(--accent-color);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .project-card.featured .project-achievement {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-left-color: white;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 6rem 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--gradient);
+            color: white;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .contact-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <h2>Work in Progress</h2>
+                <h2>Jonathan Deepak</h2>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
@@ -26,27 +625,29 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-line">Jonathan</span>
-                    <span class="title-line">Deepak</span>
-                    <span class="title-line highlight">Kannan</span>
-                </h1>
-                <p class="hero-subtitle">Robotics Engineer & ML Specialist</p>
-                <div class="hero-description">
-                    <p>Building the future through intelligent robotics systems, machine learning, and autonomous technologies.</p>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Jonathan</span>
+                        <span class="title-line">Deepak</span>
+                        <span class="title-line highlight">Kannan</span>
+                    </h1>
+                    <p class="hero-subtitle">Robotics Engineer & Computer Vision Specialist</p>
+                    <div class="hero-description">
+                        <p>Building the future through intelligent robotics systems, computer vision, and autonomous technologies. Specializing in real-time navigation and machine learning solutions.</p>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    </div>
                 </div>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="robot-animation">
-                    <div class="robot-body"></div>
-                    <div class="robot-head"></div>
-                    <div class="robot-eyes"></div>
+                <div class="hero-visual">
+                    <div class="robot-animation">
+                        <div class="robot-body"></div>
+                        <div class="robot-head"></div>
+                        <div class="robot-eyes"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,21 +659,21 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a passionate robotics engineer specializing in autonomous systems, machine learning, and industrial automation. With expertise in ROS, PyTorch, and advanced control algorithms, I develop intelligent solutions that bridge the gap between theoretical research and practical applications.</p>
-                    <p>My experience spans from reinforcement learning for hexapod locomotion to industrial FANUC robot programming, always focusing on creating robust, efficient, and innovative robotic systems.</p>
+                    <p>I'm a passionate robotics engineer specializing in autonomous systems, computer vision, and machine learning. With expertise in ROS, PyTorch, and advanced computer vision algorithms, I develop intelligent solutions that bridge the gap between theoretical research and practical applications.</p>
+                    <p>My experience spans from reinforcement learning for hexapod locomotion to autonomous navigation systems with real-time obstacle avoidance. I'm particularly interested in creating robust, efficient systems that can navigate complex environments and make intelligent decisions in real-time.</p>
                 </div>
                 <div class="about-stats">
                     <div class="stat">
-                        <h3>5+</h3>
+                        <h3>8+</h3>
                         <p>Major Projects</p>
                     </div>
                     <div class="stat">
-                        <h3>10+</h3>
+                        <h3>15+</h3>
                         <p>Technologies</p>
                     </div>
                     <div class="stat">
-                        <h3>3+</h3>
-                        <p>Years Experience</p>
+                        <h3>85%</h3>
+                        <p>Navigation Success Rate</p>
                     </div>
                 </div>
             </div>
@@ -84,6 +685,29 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <h3>Autonomous Navigation System</h3>
+                        <span class="project-type">Computer Vision</span>
+                    </div>
+                    <p>Designed and deployed a modular computer vision pipeline on TurtleBot for autonomous navigation in dynamic environments. Integrated YOLO for object detection and optical flow for motion tracking, along with horizon detection, lane marking, and stop sign recognition.</p>
+                    <div class="project-achievement">
+                        85% Success Rate navigating unseen terrains with real-time dynamic obstacle avoidance
+                    </div>
+                    <div class="project-tech">
+                        <span>YOLO</span>
+                        <span>Optical Flow</span>
+                        <span>OpenCV</span>
+                        <span>TurtleBot</span>
+                        <span>ROS</span>
+                        <span>Python</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-btn">GitHub</a>
+                        <a href="#" class="link-btn">Demo</a>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Hexapod Reinforcement Learning</h3>
@@ -95,6 +719,7 @@
                         <span>ROS</span>
                         <span>Gazebo</span>
                         <span>Python</span>
+                        <span>PPO</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="link-btn">GitHub</a>
@@ -113,24 +738,7 @@
                         <span>XGBoost</span>
                         <span>Python</span>
                         <span>Pandas</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="link-btn">GitHub</a>
-                        <a href="#" class="link-btn">Demo</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>TurtleBot Navigation</h3>
-                        <span class="project-type">Robotics</span>
-                    </div>
-                    <p>Complete autonomous navigation system with SLAM, computer vision, and dynamic obstacle avoidance for complex indoor environments.</p>
-                    <div class="project-tech">
-                        <span>ROS</span>
-                        <span>OpenCV</span>
-                        <span>C++</span>
-                        <span>PCL</span>
+                        <span>NumPy</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="link-btn">GitHub</a>
@@ -149,6 +757,7 @@
                         <span>Python</span>
                         <span>ROS</span>
                         <span>NumPy</span>
+                        <span>Algorithms</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="link-btn">GitHub</a>
@@ -183,18 +792,19 @@
             <h2 class="section-title">Skills & Technologies</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Robotics & AI</h3>
+                    <h3>Robotics & Computer Vision</h3>
                     <div class="skills-list">
                         <span class="skill-tag">ROS</span>
-                        <span class="skill-tag">PyTorch</span>
                         <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">Gazebo</span>
+                        <span class="skill-tag">YOLO</span>
+                        <span class="skill-tag">Optical Flow</span>
                         <span class="skill-tag">SLAM</span>
-                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Gazebo</span>
+                        <span class="skill-tag">PCL</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Programming</h3>
+                    <h3>Programming & Tools</h3>
                     <div class="skills-list">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">C++</span>
@@ -202,16 +812,18 @@
                         <span class="skill-tag">FANUC KAREL</span>
                         <span class="skill-tag">Linux</span>
                         <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Machine Learning</h3>
+                    <h3>Machine Learning & AI</h3>
                     <div class="skills-list">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
                         <span class="skill-tag">Scikit-learn</span>
                         <span class="skill-tag">XGBoost</span>
                         <span class="skill-tag">Reinforcement Learning</span>
                         <span class="skill-tag">Neural Networks</span>
-                        <span class="skill-tag">TensorFlow</span>
                         <span class="skill-tag">Pandas</span>
                     </div>
                 </div>
@@ -228,13 +840,13 @@
                     <p>Interested in collaborating on robotics projects or discussing opportunities? I'd love to hear from you!</p>
                 </div>
                 <div class="contact-links">
-                    <a href="mailto:kjdeepak@umd.edu" class="contact-btn">
+                    <a href="mailto:jonathan.deepak.kannan@gmail.com" class="contact-btn">
                         <span>Email</span>
                     </a>
                     <a href="https://github.com/jonathandeepak" class="contact-btn">
                         <span>GitHub</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/jonathankannan/" class="contact-btn">
+                    <a href="https://linkedin.com/in/jonathan-deepak-kannan" class="contact-btn">
                         <span>LinkedIn</span>
                     </a>
                 </div>
@@ -245,10 +857,49 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Jonathan Deepak Kannan. All rights reserved.</p>
+            <p>&copy; 2025 Jonathan Deepak Kannan. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(102, 126, 234, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for scroll animations
+        document.querySelectorAll('.project-card, .skill-category, .stat').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition =
